@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qabsoul - Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+            background-color: var(--container-bg-color);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-top: 20px;
+            color: var(--heading-color);
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: var(--text-color);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --heading-color: #ffffff;
+            --text-color: #9c9c9c;
+            --background-color: #0d1117;
+            --container-bg-color: #161b22;
+        }
+
+        .light-mode {
+            --primary-color: #007bff;
+            --heading-color: #333333; /* Darker heading color for Light Mode */
+            --text-color: #333333; /* Darker text color for better contrast */
+            --background-color: #ffffff;
+            --container-bg-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-wrapper">
+        <span class="toggle-label">Dark Mode</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="modeToggle" onchange="toggleMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <h1>Qabsoul</h1>
+        <h2>Coming Soon</h2>
+        <p>Qabsoul is a revolutionary lifestyle app designed to help you connect, chat, and build meaningful relationships. We're working hard to bring Qabsoul to life. Stay tuned!</p>
+
+        <p>We can't wait to share Qabsoul with you!</p>
+
+        <div class="links">
+            <a href="about.html">About Us</a> | 
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms of Service</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 Qabsoul. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle between Dark Mode and Light Mode
+        function toggleMode() {
+            const body = document.body;
+            const isChecked = document.getElementById('modeToggle').checked;
+
+            if (isChecked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load the saved theme from localStorage on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            const modeToggle = document.getElementById('modeToggle');
+
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                modeToggle.checked = true;
+            }
+        }
+    </script>
+
+</body>
+</html>
